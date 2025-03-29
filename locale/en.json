@@ -1,0 +1,32 @@
+﻿{
+    "startMessage": "Welcome!",
+    "commands": [
+        "Commands for app",
+        "/service list of service",
+
+        "/locale languages list",
+        "/locale_ru Русский",
+        "/locale_en English"
+    ],
+    "list_locale": [
+        "/locale_ru Русский",
+        "/locale_en English"
+    ],
+    "list_service": [
+        
+    ],
+    "lc": {
+        "selected": "App language set English"
+    },
+    "service": {
+        "head": "Catalog services"
+    },
+    "ui": {
+        "lc_ru": "Русский",
+        "lc_en": "English",
+        "lc": "Language",
+        "s": "Services"
+
+    }
+
+}

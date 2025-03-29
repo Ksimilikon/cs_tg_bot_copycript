@@ -1,0 +1,31 @@
+{
+    "startMessage": "Добро пожаловать!",
+    "commands": [
+        "Комманды для приложения",
+        "/service список услуг",
+
+        "/locale список языков приложения",
+        "/locale_ru Русский",
+        "/locale_en English"
+    ],
+    "list_locale": [
+        "/locale_ru Русский",
+        "/locale_en English"
+    ],
+    "list_service": [
+       
+    ],
+    "lc": {
+        "selected": "Язык приложения установлен как Русский"
+    },
+    "service": {
+        "head": "Каталог услуг"
+    },
+    "ui": {
+        "lc_ru": "Русский",
+        "lc_en": "English",
+        "lc": "Язык",
+        "s": "Услуги"
+    }
+
+}

@@ -1,0 +1,4 @@
+!start_message=Welcome!
+!command=/start
+!command=/services list services
+!command=/locale list localizations
