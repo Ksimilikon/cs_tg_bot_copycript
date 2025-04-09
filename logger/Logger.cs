@@ -13,5 +13,9 @@ namespace cs_tg_bot.logger
         {
             Console.WriteLine($"{DateTime.UtcNow} -- {place}::{message}");
         }
+        async public static Task LogAsync(string place, string message)
+        {
+            Console.WriteLine($"{DateTime.UtcNow} -- {place}::{message}");
+        }
     }
 }
