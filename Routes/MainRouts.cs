@@ -11,12 +11,13 @@ using User = cs_tg_bot.Models.User;
 using cs_tg_bot.Service.Enums;
 using Microsoft.VisualBasic;
 using System.Runtime.CompilerServices;
+using cs_tg_bot.Controller;
 
 namespace cs_tg_bot.Routes
 {
     class MainRouts : Routs
     {
-        
+        private static APIController api = new APIController(@"https://api-v3.raydium.io/");
         async public Task Handler(ITelegramBotClient botClient, Message msg)
         {
             if (filterText(msg, "/start"))
@@ -44,6 +45,12 @@ namespace cs_tg_bot.Routes
             {
                 await changeLocale(botClient, msg, Locales.ru);
                 await logger.Logger.LogAsync($"{nameClass}::Handler()/locale_ru", $"event handled -- {msg.Chat.Id}::{msg.Chat.FirstName}");
+            }
+            if (filterText(msg, "/migrate_lp"))
+            {
+                string response = await api.getResponseAsync(@"main/migrate-lp");
+                await botClient.SendMessage(msg.Chat.Id, Convert.ToString(response.Length));
+                await logger.Logger.LogAsync($"{nameClass}::Handler()/migrate_lp", $"event handled -- {msg.Chat.Id}::{msg.Chat.FirstName}");
             }
         }
         

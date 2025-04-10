@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 using System.Reflection.Metadata.Ecma335;
+using System.Threading.Tasks;
 using cs_tg_bot.Controller;
 using cs_tg_bot.logger;
 using cs_tg_bot.Models;
@@ -21,7 +22,7 @@ namespace main
         private static TelegramBotClient bot;
         private static MainRouts _rout = new MainRouts();
 
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             Console.WriteLine("start run app");
             Console.WriteLine("DB connection");
@@ -48,10 +49,18 @@ namespace main
                 System.Environment.Exit(-10);
             }
 
+            //using (HttpClient client = new HttpClient())
+            //{
+            //    client.BaseAddress = new Uri(@"https://api-v3.raydium.io/");
+            //    HttpResponseMessage response = await client.GetAsync(@"main/migrate-lp");
+            //    string responseData = await response.Content.ReadAsStringAsync();
+            //    Console.WriteLine(responseData);
+            //}
 
 
-            
-            LocaleController lcController = new LocaleController();
+
+
+                LocaleController lcController = new LocaleController();
             //Console.WriteLine(lcController.getJSON(Locales.ru, "dsd").list_locale[0]);
             botToken = Env.getProperty(pathEnv.getPathFile(".env"), "bot_token");
             if(botToken == "" || botToken == null)
