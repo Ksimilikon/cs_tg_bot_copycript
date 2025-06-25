@@ -17,12 +17,12 @@ namespace cs_tg_bot.Routes
 {
     class MainRouts : Routs
     {
-        private static APIController api = new APIController(@"https://api-v3.raydium.io/");
+        private static APIController api = new APIController(@"https://streaming.bitquery.io/eap");
         async public Task Handler(ITelegramBotClient botClient, Message msg)
         {
             if (filterText(msg, "/start"))
             {
-                string lang = msg.From.LanguageCode;
+                string? lang = msg.From?.LanguageCode;
                 Locales lc;
                 if (lang == "ru")
                 {
@@ -46,10 +46,10 @@ namespace cs_tg_bot.Routes
                 await changeLocale(botClient, msg, Locales.ru);
                 await logger.Logger.LogAsync($"{nameClass}::Handler()/locale_ru", $"event handled -- {msg.Chat.Id}::{msg.Chat.FirstName}");
             }
-            if (filterText(msg, "/migrate_lp"))
+            if (filterText(msg, "/migrates"))
             {
-                string response = await api.getResponseAsync(@"main/migrate-lp");
-                await botClient.SendMessage(msg.Chat.Id, Convert.ToString(response.Length));
+                string response = await api.getMigrates();
+                await botClient.SendMessage(msg.Chat.Id, Convert.ToString(response));
                 await logger.Logger.LogAsync($"{nameClass}::Handler()/migrate_lp", $"event handled -- {msg.Chat.Id}::{msg.Chat.FirstName}");
             }
         }
@@ -68,5 +68,6 @@ namespace cs_tg_bot.Routes
                 await botClient.SendMessage(msg.Chat.Id, "need authorize /start");
             }
         }
+        
     }
 }

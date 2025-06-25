@@ -50,13 +50,17 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "System.Data.SQLite": {
               "target": "Package",
               "version": "[1.0.119, )"
             },
             "telegram.bot": {
               "target": "Package",
-              "version": "[22.4.4, )"
+              "version": "[22.5.1, )"
             }
           },
           "imports": [
